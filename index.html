@@ -1,1 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Musaffa Daffa Affan Rafael — Game Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1FF;--surface:#E8E2FC;--card:#FFFFFF;--ink:#1D1A33;--muted:#5B5680;--accent:#D92B56;--accent2:#0B7F6B;--line:#D5CEF3;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120F24;--surface:#1D1940;--card:#1B1738;--ink:#EEEAFF;--muted:#A9A3D1;--accent:#FF6F91;--accent2:#4DE1C1;--line:#34305E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#120F24;--surface:#1D1940;--card:#1B1738;--ink:#EEEAFF;--muted:#A9A3D1;--accent:#FF6F91;--accent2:#4DE1C1;--line:#34305E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;font-size:17px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+a:focus-visible,canvas:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px;flex-wrap:wrap}
+header b{font-weight:800}
+nav{display:flex;gap:20px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink);text-decoration:underline}
+.hero{position:relative;overflow:hidden;border-radius:24px;padding:48px 28px 28px;color:#fff;background:linear-gradient(165deg,#1B1146 0%,#4A2380 55%,#9B3F8F 100%)}
+.hero::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#FFB36B 0,#FF6F91 45%,transparent 70%);opacity:.55;pointer-events:none}
+.hero>*{position:relative}
+.role{font-family:'Pixelify Sans',monospace;font-size:1.1rem;color:#FFD36B;margin:0 0 10px}
+h1{font-size:clamp(2.3rem,7.5vw,4.8rem);line-height:1;font-weight:800;letter-spacing:-.025em;margin:0 0 18px;max-width:9em}
+.lead{color:rgba(255,255,255,.85);max-width:34em;margin:0 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid #fff;color:#fff}
+.btn.main{background:#FFD36B;border-color:#FFD36B;color:#1B1146}
+.btn:hover{background:#fff;color:#1B1146;border-color:#fff}
+#g{display:block;width:100%;height:auto;border-radius:16px;cursor:pointer;touch-action:manipulation;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.hint{font-size:.9rem;color:rgba(255,255,255,.75);margin:10px 0 0}
+section{padding:64px 0 0}
+h2{font-size:1.9rem;font-weight:800;margin:0 0 22px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.proj:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(40,20,90,.18)}
+.proj.feat{grid-column:1/-1;flex-direction:row}
+.art{min-height:150px;flex:0 0 auto;width:100%}
+.feat .art{width:46%;min-height:240px}
+.body{padding:20px 22px 22px}
+.proj h3{margin:0 0 6px;font-size:1.35rem}
+.proj p{margin:0 0 14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.tags li{font-family:'Pixelify Sans',monospace;font-size:.9rem;padding:3px 12px;border-radius:999px;background:var(--surface);color:var(--ink)}
+.a1{background:radial-gradient(circle at 70% 62%,#FFD36B 0 14%,#FF8F6B 15% 22%,transparent 23%),linear-gradient(180deg,#2A1A66 0,#B4457F 55%,#FF8F6B 62%,#2A1A66 62%)}
+.a2{background:repeating-conic-gradient(var(--accent2) 0 25%,var(--surface) 0 50%) 0 0/28px 28px}
+.a3{background:radial-gradient(circle at 28% 40%,var(--accent) 0 12%,transparent 13%),radial-gradient(circle at 72% 62%,var(--accent2) 0 12%,transparent 13%),var(--surface)}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px}
+.skills h3{margin:0 0 10px;font-size:1.1rem}
+.about{max-width:38em;font-size:1.08rem}
+.contact a.btn{margin:0 12px 10px 0;color:var(--ink);border-color:var(--ink)}
+.contact a.btn.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.contact a.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+footer{padding:56px 0 32px;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.grid,.skills{grid-template-columns:1fr}.proj.feat{flex-direction:column}.feat .art{width:100%;min-height:170px}.hero{padding:36px 18px 20px}}
+@media (prefers-reduced-motion:reduce){.proj{transition:none}.proj:hover{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><b>Musaffa Daffa Affan Rafael</b><nav><a href="#proyek">Proyek</a><a href="#keahlian">Keahlian</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a></nav></header>
+
+<main>
+<div class="hero">
+<p class="role">Game Developer</p>
+<h1>Musaffa Daffa Affan Rafael</h1>
+<p class="lead">Saya membuat game yang ingin dimainkan sekali lagi. Fokus saya gameplay, alat bantu editor, dan prototipe cepat.</p>
+<div class="cta"><a class="btn main" href="#proyek">Lihat proyek</a><a class="btn" href="#kontak">Hubungi saya</a></div>
+<canvas id="g" width="720" height="260" tabindex="0" role="img" aria-label="Mini game lompat rintangan. Tekan spasi atau ketuk untuk melompat."></canvas>
+<p class="hint">Coba satu putaran: tekan spasi atau ketuk layar untuk mulai dan melompat.</p>
+</div>
+
+<section id="proyek">
+<h2>Proyek</h2>
+<div class="grid">
+<article class="proj feat"><div class="art a1" role="img" aria-label="Ilustrasi senja di atas bukit"></div><div class="body"><h3>Lompat Senja</h3><p>Platformer 2D dengan kontrol yang terasa pas di layar sentuh. Saya mengerjakan gerak karakter, kamera, dan sistem level.</p><ul class="tags"><li>Unity</li><li>C#</li><li>Android</li><li>Solo, 4 bulan</li></ul></div></article>
+<article class="proj"><div class="art a2" role="img" aria-label="Pola petak"></div><div class="body"><h3>Kapal Kertas</h3><p>Game puzzle tentang melipat dan melayarkan kapal. 60 level dan editor level buatan sendiri.</p><ul class="tags"><li>Godot</li><li>GDScript</li><li>itch.io</li></ul></div></article>
+<article class="proj"><div class="art a3" role="img" aria-label="Dua titik berwarna"></div><div class="body"><h3>Arena Kecil</h3><p>Game co-op 2 pemain untuk satu layar. Saya menulis AI musuh dan sistem koneksi antar pemain.</p><ul class="tags"><li>Unreal</li><li>C++</li><li>Tim 3 orang</li></ul></div></article>
+</div>
+</section>
+
+<section id="keahlian">
+<h2>Keahlian</h2>
+<div class="skills">
+<div><h3>Engine</h3><ul class="tags"><li>Unity</li><li>Godot</li><li>Unreal Engine</li></ul></div>
+<div><h3>Bahasa</h3><ul class="tags"><li>C#</li><li>C++</li><li>GDScript</li><li>Python</li></ul></div>
+<div><h3>Bidang</h3><ul class="tags"><li>Gameplay</li><li>AI musuh</li><li>UI</li><li>Optimasi</li><li>Tools editor</li></ul></div>
+<div><h3>Seni dan audio</h3><ul class="tags"><li>Aseprite</li><li>Blender</li><li>FMOD</li></ul></div>
+</div>
+</section>
+
+<section id="tentang">
+<h2>Tentang</h2>
+<p class="about">Saya mulai membuat game dari mod kecil waktu sekolah, dan sejak itu terus membuat prototipe tiap minggu. Saya suka mengubah ide mentah jadi sesuatu yang bisa dimainkan dalam hitungan hari, lalu memolesnya bersama pemain.</p>
+</section>
+
+<section id="kontak" class="contact">
+<h2>Kontak</h2>
+<p>Terbuka untuk kerja sama, game jam, dan proyek freelance.</p>
+<a class="btn main" href="mailto:halo@contoh.com">halo@contoh.com</a><a class="btn" href="#">itch.io</a><a class="btn" href="#">GitHub</a><a class="btn" href="#">LinkedIn</a>
+</section>
+</main>
+<footer>© 2026 Musaffa Daffa Affan Rafael</footer>
+</div>
+
+<script>
+(function(){
+var c=document.getElementById('g'),x=c.getContext('2d'),W=720,H=260,G=214,S=30,PX=70;
+var st='idle',p,obs,sc,best=0,t,spd,off=0,stars=[];
+for(var i=0;i<40;i++)stars.push([Math.random()*W,Math.random()*110,Math.random()*1.8+.6]);
+var HUD='700 18px "Pixelify Sans",monospace';
+function reset(){p={y:G-S,v:0};obs=[];sc=0;spd=5;t=0}
+function jump(){if(st!=='run'){reset();st='run';return}if(p.y>=G-S)p.v=-12}
+function hills(h,amp,k,col,sp){x.fillStyle=col;x.beginPath();x.moveTo(0,G);for(var i=0;i<=W;i+=8)x.lineTo(i,G-h-amp*Math.sin((i+off*sp)*k)-amp*.5*Math.sin((i+off*sp)*k*2.3));x.lineTo(W,G);x.closePath();x.fill()}
+function draw(){
+var g=x.createLinearGradient(0,0,0,G);g.addColorStop(0,'#1B1146');g.addColorStop(.55,'#7A3392');g.addColorStop(1,'#FF8F6B');
+x.fillStyle=g;x.fillRect(0,0,W,H);
+x.fillStyle='rgba(255,255,255,.85)';stars.forEach(function(s){x.fillRect(s[0],s[1],s[2],s[2])});
+var sg=x.createLinearGradient(0,100,0,190);sg.addColorStop(0,'#FFD36B');sg.addColorStop(1,'#FF6F91');
+x.fillStyle=sg;x.beginPath();x.arc(560,150,52,0,7);x.fill();
+hills(40,16,.012,'#4A2380',.25);hills(18,12,.02,'#2D1660',.6);
+x.fillStyle='#170D38';x.fillRect(0,G,W,H-G);x.fillStyle='#FF9AA8';x.fillRect(0,G,W,2);
+x.fillStyle='rgba(255,255,255,.18)';for(var d=-(off%60);d<W;d+=60)x.fillRect(d,G+16,26,3);
+(obs||[]).forEach(function(o){x.fillStyle='#FF6F91';x.beginPath();x.moveTo(o.x,G);x.lineTo(o.x+o.w/2,G-o.h);x.lineTo(o.x+o.w,G);x.closePath();x.fill()});
+if(p){x.fillStyle='#4DE1C1';x.beginPath();x.roundRect?x.roundRect(PX,p.y,S,S,7):x.rect(PX,p.y,S,S);x.fill();
+x.fillStyle='#1B1146';x.fillRect(PX+16,p.y+8,10,7);
+if(p.y>=G-S){var f=Math.floor(t/6)%2;x.fillRect(PX+4+f*10,p.y+S,8,4)}}
+x.fillStyle='#fff';x.font=HUD;x.textAlign='right';x.fillText('SKOR '+Math.floor(sc/10)+'  TERBAIK '+best,W-16,30);x.textAlign='center';
+if(st==='idle')x.fillText('Ketuk untuk main',W/2,70);
+if(st==='over'){x.font='700 30px "Pixelify Sans",monospace';x.fillText('Kena rintangan',W/2,66);x.font=HUD;x.fillText('Ketuk untuk coba lagi',W/2,96)}
+}
+function step(){
+if(st==='run'){
+p.v+=.68;p.y=Math.min(G-S,p.y+p.v);if(p.y>=G-S)p.v=0;
+t++;sc++;spd=5+sc/500;off+=spd;
+if(t%Math.max(48,92-Math.floor(sc/25))===0)obs.push({x:W,w:26+Math.random()*14,h:28+Math.random()*24});
+obs.forEach(function(o){o.x-=spd});obs=obs.filter(function(o){return o.x>-60});
+for(var i=0;i<obs.length;i++){var o=obs[i];if(o.x+6<PX+S&&o.x+o.w-6>PX&&p.y+S>G-o.h+8){st='over';best=Math.max(best,Math.floor(sc/10))}}
+}
+draw();requestAnimationFrame(step)}
+c.addEventListener('pointerdown',function(e){e.preventDefault();c.focus({preventScroll:true});jump()});
+c.addEventListener('keydown',function(e){if(e.code==='Space'||e.code==='ArrowUp'){e.preventDefault();jump()}});
+reset();step();
+if(document.fonts&&document.fonts.load)document.fonts.load(HUD);
+})();
+</script>
+</body>
+</html>
 
